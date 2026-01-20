@@ -1,0 +1,322 @@
+/* whole */
+body {
+    font-family: 'Fredoka', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+}
+
+/* bg */
+.bg-pat {
+    background-image: radial-gradient(#e5e5e5 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+
+.txt-pk {
+    color: #ff4fa1;
+}
+
+/* button */
+.btn-pk {
+    background-color: #ff4fa1;
+    color: white;
+    font-weight: 700;
+    padding: 12px 32px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-pk:hover {
+    opacity: 0.9;
+}
+
+/* header */
+.s-head {
+    position: relative;
+    height: 180px;
+    background: url("banner.png") no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.logo-w {
+    margin-top: -20px;
+    z-index: 10;
+}
+
+.nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3rem;
+}
+
+.nav a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.h-icons {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    margin-top: -20px;
+    z-index: 10;
+}
+
+.h-icons img {
+    height: 42px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+/* /header */
+
+/* body dashboard */
+
+.ad-card {
+    background-color: #ff4fa1;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.ad-card h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.ad-val {
+    background-color: #ffd1e5;
+    color: black;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.an-wrap {
+    background-color: #ff4fa1;
+    border-radius: 24px;
+    padding: 3rem;
+}
+
+.an-in {
+    background: linear-gradient(135deg, #f7c4b8, #ffd9ef);
+    border-radius: 24px;
+    padding: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.pie {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background-color: #ffe5f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #7a3e9d;
+}
+
+.an-txt {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #7a3e9d;
+}
+
+.an-txt p {
+    margin-bottom: 1rem;
+}
+
+
+/* /body dashboard */
+
+/* body page products */
+
+.p-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.p-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.p-img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.p-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #000;
+
+}
+
+.p-price {
+    color: #ff4fa1;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.p-stk {
+    font-weight: 600;
+    color: #ff4fa1;
+    margin-bottom: 1rem;
+}
+
+.p-act button {
+    padding: 0.6rem 1rem;
+    font-weight: 700;
+    border-radius: 9999px;
+    transition: opacity 0.2s ease;
+}
+
+.p-act {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.p-act button:hover {
+    opacity: 0.9;
+}
+
+
+@media (max-width: 1024px) {
+    .grid {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .p-card {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* /body page products */
+
+/* body orders*/
+
+.w-full {
+    box-sizing: border-box;
+}
+
+.text-black {
+    color: #000000;
+}
+
+.mix-blend-multiply {
+    mix-blend-mode: multiply;
+}
+
+
+@media (max-width: 1024px) {
+    
+    .lg\:flex-row {
+        flex-direction: column;
+    }
+    
+    .lg\:text-right {
+        text-align: left;
+    }
+    
+    .lg\:w-48 {
+        width: 150px;
+    }
+}
+
+/* /bodys orders*/
+
+/* FOOTER */
+.s-foot {
+    background-color: #ffc3dc;
+    padding: 4rem 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    color: #ff4fa1;
+}
+
+.f-brand {
+    flex: 1;
+    min-width: 280px;
+}
+
+.f-brand img {
+    max-width: 240px;
+}
+
+.f-col {
+    flex: 1;
+    min-width: 150px;
+    border-left: 2px solid #ff4fa1;
+    padding-left: 2rem;
+}
+
+.f-col h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.f-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.f-col li {
+    margin-bottom: 0.5rem;
+}
+
+.f-col a {
+    font-weight: 700;
+    text-decoration: underline;
+    color: inherit;
+}
+
+.contact {
+    color: black;
+}
+
+.contact div {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}

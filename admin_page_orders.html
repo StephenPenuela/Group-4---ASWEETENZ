@@ -1,0 +1,291 @@
+<html>
+<head>
+    <title>ASweetenz - Admin Orders</title>
+
+    <!-- idk -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- /idk -->
+
+    <link rel="stylesheet" href="style_main.css">
+</head>
+
+<!-- header -->
+<body class="flex flex-col min-h-screen">
+
+    <div class="w-full h-[50px] bg-[#ffcae1]"></div>
+
+    <header class="s-head">
+        <div class="logo-w">
+            <img src="Logo_Banner.png" alt="Logo" class="h-20">
+        </div>
+
+        <nav class="nav">
+            <a href="#">Manage Content</a>
+            <a href="#">Dashboard</a>
+            <a href="#">About Us</a>
+        </nav>
+
+        <div class="h-icons">
+            <img src="user.png" alt="User">
+            <img src="search.png" alt="Search">
+            <img src="cart.png" alt="Cart">
+        </div>
+    </header>
+
+<!-- /header -->
+
+<!-- body -->
+    <main class="bg-pat flex-1">
+        
+        <div class="w-full px-4 md:px-8 py-8"> 
+            
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-[#ff4fa1]">Admin Panel</h1>
+                <div class="relative cursor-pointer">
+                    <i class="fa-solid fa-bell text-[#ff4fa1] text-2xl hover:opacity-80 transition"></i>
+                    <span class="absolute top-0 right-0 w-3 h-3 bg-[#fcd34d] rounded-full border-2 border-white"></span>
+                </div>
+            </div>
+        
+            <div class="flex flex-wrap gap-4 mb-8">
+                <button class="px-8 py-2 rounded-full font-bold text-white bg-[#ff9bc0] hover:bg-[#ff4fa1] transition">Products</button>
+                <button class="relative px-8 py-2 rounded-full font-bold text-white bg-[#ff4fa1] shadow-md">
+                    Orders
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-[#fcd34d] rounded-full border-2 border-white"></span>
+                </button>
+                <button class="relative px-8 py-2 rounded-full font-bold text-white bg-[#ff9bc0] hover:bg-[#ff4fa1] transition">
+                    Logs
+                    <span class="absolute -top-1 -right-1 w-4 h-4 bg-[#fcd34d] rounded-full border-2 border-white"></span>
+                </button>
+            </div>
+        
+            <div class="flex flex-wrap items-center gap-6 mb-6 text-lg font-bold">
+                <span class="text-black">Sort By:</span>
+                <button class="hover:text-[#ff4fa1] transition">Name</button>
+                <button class="hover:text-[#ff4fa1] transition">Status</button>
+                <button class="hover:text-[#ff4fa1] transition">Price</button>
+                <button class="relative hover:text-[#ff4fa1] transition">
+                    Recents
+                    <span class="absolute -top-1 -right-2 w-3 h-3 bg-[#fcd34d] rounded-full"></span>
+                </button>
+            </div>
+        
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 divide-y divide-gray-200">
+        
+                <div class="p-6 flex flex-col lg:flex-row gap-6 hover:bg-pink-50 transition duration-200">
+                    <div class="w-full lg:w-48 flex-shrink-0">
+                        <div class="aspect-square bg-pink-100 rounded-lg overflow-hidden relative">
+                            <img src="product_1.png" alt="Tote Bag" class="w-full h-full object-cover mix-blend-multiply"> 
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-1">Order No.</h3>
+                            <p class="text-sm text-gray-600 font-medium">Order Descrip</p>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="text-xl font-bold text-[#ff4fa1]">100 PHP</span>
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 lg:text-right flex flex-col gap-1">
+                        <div class="mb-2 cursor-pointer inline-block lg:ml-auto select-none flex items-center gap-2" onclick="toggleDetails(this)">
+                            <span class="font-bold text-black">Order Status: </span>
+                            <span class="font-medium">Shipped</span>
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                        </div>
+                        
+                        <div class="ord-det overflow-hidden transition-all duration-300 max-h-[500px]">
+                            <p class="font-bold text-black">Date of Received:</p>
+                            <div class="h-4"></div> 
+                            <p class="text-sm font-bold text-black mt-2">Date of order: 12/21/25</p>
+                            <p class="text-sm font-bold text-black">Ordered by: John Doe</p>
+                            <p class="text-sm font-bold text-black">Order ID: 5HGTSRTAYT2SD</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 flex flex-col lg:flex-row gap-6 hover:bg-pink-50 transition duration-200">
+                    <div class="w-full lg:w-48 flex-shrink-0">
+                        <div class="aspect-square bg-white rounded-lg overflow-hidden flex items-center justify-center">
+                            <img src="product_1.png" alt="Sticker" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-1">Order No.</h3>
+                            <p class="text-sm text-gray-600 font-medium">Order Descrip</p>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="text-xl font-bold text-[#ff4fa1]">100 PHP</span>
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 lg:text-right flex flex-col gap-1">
+                        <div class="mb-2 cursor-pointer inline-block lg:ml-auto select-none flex items-center gap-2" onclick="toggleDetails(this)">
+                            <span class="font-bold text-black">Order Status: </span>
+                            <span class="font-medium">Completed</span>
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                        </div>
+                        
+                        <div class="ord-det overflow-hidden transition-all duration-300 max-h-[500px]">
+                            <p class="font-bold text-black">Date of Received:</p>
+                            <p class="font-medium text-black">12/27/25</p>
+                            <p class="text-sm font-bold text-black mt-2">Date of order: 12/22/25</p>
+                            <p class="text-sm font-bold text-black">Ordered by: John Doe</p>
+                            <p class="text-sm font-bold text-black">Order ID: 5HGTSRTAYT2SD</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col lg:flex-row gap-6 hover:bg-pink-50 transition duration-200">
+                    <div class="w-full lg:w-48 flex-shrink-0">
+                        <div class="aspect-square bg-white rounded-lg overflow-hidden flex items-center justify-center">
+                            <img src="bunny-math.png" alt="Sticker" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-1">Order No.</h3>
+                            <p class="text-sm text-gray-600 font-medium">Order Descrip</p>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="text-xl font-bold text-[#ff4fa1]">100 PHP</span>
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 lg:text-right flex flex-col gap-1">
+                        <div class="mb-2 cursor-pointer inline-block lg:ml-auto select-none flex items-center gap-2" onclick="toggleDetails(this)">
+                            <span class="font-bold text-black">Order Status: </span>
+                            <span class="font-medium">Completed</span>
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                        </div>
+                        
+                        <div class="ord-det overflow-hidden transition-all duration-300 max-h-[500px]">
+                            <p class="font-bold text-black">Date of Received:</p>
+                            <p class="font-medium text-black">12/27/25</p>
+                            <p class="text-sm font-bold text-black mt-2">Date of order: 12/22/25</p>
+                            <p class="text-sm font-bold text-black">Ordered by: John Doe</p>
+                            <p class="text-sm font-bold text-black">Order ID: 5HGTSRTAYT2SD</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 flex flex-col lg:flex-row gap-6 hover:bg-pink-50 transition duration-200">
+                    <div class="w-full lg:w-48 flex-shrink-0">
+                        <div class="aspect-square bg-white rounded-lg overflow-hidden flex items-center justify-center">
+                            <img src="bunny-cry.png" alt="Sticker" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-black mb-1">Order No.</h3>
+                            <p class="text-sm text-gray-600 font-medium">Order Descrip</p>
+                        </div>
+                        <div class="mt-4 lg:mt-0">
+                            <span class="text-xl font-bold text-[#ff4fa1]">100 PHP</span>
+                        </div>
+                    </div>
+        
+                    <div class="flex-1 lg:text-right flex flex-col gap-1">
+                        <div class="mb-2 cursor-pointer inline-block lg:ml-auto select-none flex items-center gap-2" onclick="toggleDetails(this)">
+                            <span class="font-bold text-black">Order Status: </span>
+                            <span class="font-medium">Out For Delivery</span>
+                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+                        </div>
+                        
+                        <div class="ord-det overflow-hidden transition-all duration-300 max-h-[500px]">
+                            <div class="h-6"></div> 
+                            <p class="text-sm font-bold text-black mt-2">Date of order: 12/23/25</p>
+                            <p class="text-sm font-bold text-black">Ordered by: Julia Smith</p>
+                            <p class="text-sm font-bold text-black">Order ID: 5HGTSRTAYT2SD</p>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            
+        </div>
+        
+    </main>
+
+    <script>
+        function toggleDetails(element) {
+            // Find the next sibling element which contains the details
+            const details = element.nextElementSibling;
+            
+            // Find the icon inside the clicked element
+            const icon = element.querySelector('i');
+    
+            // Check if it is currently "closed" (0px)
+            if (details.style.maxHeight === '0px') {
+                // EXPAND: Set max-height to a large number
+                details.style.maxHeight = "500px"; 
+                details.style.opacity = "1";
+                details.style.marginTop = "0";
+                
+                // Rotate arrow back to original (down)
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                // COLLAPSE: Set max-height to 0
+                details.style.maxHeight = "0px";
+                details.style.opacity = "0";
+                details.style.marginTop = "-10px"; // Slight pull up effect
+                
+                // Rotate arrow 180 degrees (up)
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+    </script>
+    <!-- /body -->
+
+    <!-- footer -->
+    <footer class="s-foot">
+        <div class="f-brand">
+            <img src="Brand and logo.png" alt="ASweetenz">
+            <div class="copyright">
+                © 2026 ASweetenz. All rights reserved.
+            </div>
+        </div>
+
+        <div class="f-col">
+            <h4>Information</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop All</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">Refund Policy</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Use</a></li>
+            </ul>
+        </div>
+
+        <div class="f-col contact">
+            <h4>Contact us</h4>
+            <div>
+                <i class="fa-brands fa-instagram"></i> @angelicasweetenz
+            </div>
+            <div>
+                <i class="fa-brands fa-discord"></i> asweetenz
+            </div>
+            <div>
+                <i class="fa-solid fa-envelope"></i> angelica.sweetenz@gmail.com
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
