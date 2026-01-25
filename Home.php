@@ -1,205 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASweetenz - Home</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-        }
+<section class="relative w-full h-[600px] bg-gray-100 overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="Hero_Home.webp" alt="Home Hero" class="w-full h-full object-cover object-center animate-fade-in">
+        <div class="absolute inset-0 bg-black/20"></div> </div>
+    
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+        <h1 class="text-white text-5xl md:text-7xl font-black drop-shadow-lg mb-6 tracking-wide">
+            WELCOME TO <br><span class="text-[#ff4fa1] bg-white px-4 rounded-xl">ASWEETENZ</span>
+        </h1>
+        <p class="text-white text-xl md:text-2xl font-bold mb-8 drop-shadow-md max-w-2xl">
+            Discover the cutest stickers, charms, and art accessories tailored just for you.
+        </p>
+        <a href="Product_List.php" class="bg-[#ff4fa1] hover:bg-[#e03e8a] text-white text-xl md:text-2xl font-bold py-4 px-12 rounded-full shadow-xl transform hover:scale-105 transition duration-300 flex items-center gap-3">
+            Shop Now <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+    </div>
+</section>
 
-        .main-bg-pattern {
-            background-image: radial-gradient(#e5e5e5 1.5px, transparent 1.5px);
-            background-size: 24px 24px;
-        }
+<main class="main-bg-pattern py-20 px-[5%]">
 
-        .pink-text {
-            color: #ff4fa1;
-        }
+    <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-[#ff4fa1] uppercase inline-block border-b-4 border-pink-200 pb-2">Featured Items</h2>
+        <p class="text-gray-400 font-bold mt-4 text-lg">Check out our latest arrivals!</p>
+    </div>
 
-        /* Collection Box Shape matching mockup */
-        .collection-box {
-            border: 4px solid #ff4fa1;
-            border-top-right-radius: 80px;
-            border-bottom-left-radius: 80px;
-            aspect-ratio: 1/1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-color: #f3f4f6;
-        }
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <?php
+        // Fetch 4 items. If database is empty or fails, this won't crash the site.
+        $sql = "SELECT * FROM products LIMIT 4";
+        $result = $conn->query($sql);
 
-        .btn-pink {
-            background-color: #ff4fa1;
-            color: white;
-            font-weight: 700;
-            padding: 12px 32px;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: opacity 0.2s;
-        }
-
-        .btn-pink:hover {
-            opacity: 0.9;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="w-full h-[50px] bg-[#ffcae1]"></div>
-
-    <header class="relative w-full h-[180px] bg-[url('banner.png')] bg-[length:100%_100%] bg-no-repeat flex items-center px-[5%] box-border">
-        <div class="z-10 mt-[-20px]">
-            <img src="Logo_Banner.png" alt="Logo" class="h-20">
-        </div>
-
-        <nav class="absolute left-1/2 -translate-x-1/2 flex gap-x-12">
-            <a href="#" class="text-white text-2xl font-bold no-underline">Home</a>
-            <a href="#" class="text-white text-2xl font-bold no-underline">Shop All</a>
-            <a href="#" class="text-white text-2xl font-bold no-underline">Collections</a>
-            <a href="#" class="text-white text-2xl font-bold no-underline">About</a>
-        </nav>
-
-        <div class="flex items-center gap-x-4 ml-auto z-10 mt-[-20px]">
-            <img src="user.png" alt="User" class="h-[42px] brightness-0 invert cursor-pointer">
-            <img src="search.png" alt="Search" class="h-[32px] brightness-0 invert cursor-pointer">
-            <img src="cart2.png" alt="Cart" class="h-[42px] brightness-0 invert cursor-pointer">
-        </div>
-    </header>
-
-    <section class="relative w-full h-[650px]">
-        <img src="Hero_Home.webp" alt="Home Hero" class="w-full h-full object-cover">
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-            <button class="btn-pink text-3xl px-16 py-6 shadow-xl">
-                Shop Now <i class="fa-solid fa-bell"></i>
-            </button>
-        </div>
-    </section>
-
-    <main class="main-bg-pattern py-20 px-[5%]">
-
-        <div class="mb-24">
-            <div class="flex justify-center items-center gap-4 mb-16">
-                <h2 class="text-6xl font-bold uppercase tracking-tight">Featured Items</h2>
-                <i class="fa-solid fa-bell pink-text text-4xl"></i>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-                <div class="text-center">
-                    <div class="bg-gray-200 aspect-square rounded-3xl mb-4 border-2 border-gray-100"></div>
-                    <p class="text-2xl font-bold mb-1">Item name</p>
-                    <p class="pink-text text-xl font-bold">Price</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-200 aspect-square rounded-3xl mb-4 border-2 border-gray-100"></div>
-                    <p class="text-2xl font-bold mb-1">Item name</p>
-                    <p class="pink-text text-xl font-bold">Price</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-200 aspect-square rounded-3xl mb-4 border-2 border-gray-100"></div>
-                    <p class="text-2xl font-bold mb-1">Item name</p>
-                    <p class="pink-text text-xl font-bold">Price</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-200 aspect-square rounded-3xl mb-4 border-2 border-gray-100"></div>
-                    <p class="text-2xl font-bold mb-1">Item name</p>
-                    <p class="pink-text text-xl font-bold">Price</p>
-                </div>
-            </div>
-
-            <div class="flex justify-center mt-16">
-                <button class="btn-pink text-xl px-12">See More</button>
-            </div>
-        </div>
-
-        <hr class="border-t-2 border-[#ff4fa1] mb-24">
-
-        <div class="mb-24">
-            <div class="flex justify-center items-center gap-4 mb-16">
-                <h2 class="text-6xl font-bold uppercase tracking-tight">Collections</h2>
-                <i class="fa-solid fa-bell pink-text text-4xl"></i>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
-                <div class="flex flex-col items-center">
-                    <div class="collection-box w-full">
-                        <i class="fa-regular fa-image text-7xl text-gray-300"></i>
+        if ($result && $result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+        ?>
+                <a href="Product_Detail.php?id=<?php echo $row['product_id']; ?>" class="group block">
+                    <div class="bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-transparent hover:border-pink-200 h-full flex flex-col">
+                        <div class="aspect-square bg-gray-50 rounded-2xl mb-4 overflow-hidden relative">
+                            <img src="<?php echo $row['image_url']; ?>" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-[#ff4fa1] text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">New</span>
+                        </div>
+                        <h3 class="text-xl font-black text-gray-800 mb-1 group-hover:text-[#ff4fa1] transition"><?php echo $row['name']; ?></h3>
+                        <div class="mt-auto pt-2 flex justify-between items-center">
+                            <p class="text-[#ff4fa1] text-xl font-bold">₱ <?php echo $row['price']; ?></p>
+                            <span class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center text-[#ff4fa1] group-hover:bg-[#ff4fa1] group-hover:text-white transition"><i class="fa-solid fa-plus"></i></span>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-bold mt-6">Collection name</h3>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="collection-box w-full">
-                        <i class="fa-regular fa-image text-7xl text-gray-300"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mt-6">Collection name</h3>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="collection-box w-full">
-                        <i class="fa-regular fa-image text-7xl text-gray-300"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold mt-6">Collection name</h3>
-                </div>
-            </div>
-        </div>
+                </a>
+        <?php
+            }
+        } else {
+            echo "<p class='text-center col-span-4 text-gray-400 text-xl'>No products found yet! Add some in Admin Panel.</p>";
+        }
+        ?>
+    </div>
 
-    </main>
+    <div class="text-center mt-16">
+        <a href="Product_List.php" class="inline-block border-2 border-[#ff4fa1] text-[#ff4fa1] hover:bg-[#ff4fa1] hover:text-white text-xl font-bold py-3 px-12 rounded-full transition duration-300 uppercase tracking-widest">
+            View All Products
+        </a>
+    </div>
 
-    <footer class="bg-[#ffc3dc] py-16 px-[5%] flex justify-between flex-wrap text-[#ff4fa1]">
-        <div class="flex-1 px-5 min-w-[280px] flex flex-col justify-between">
-            <img src="Brand and logo.png" alt="ASweetenz" class="max-w-[240px]">
-            <div class="mt-12 font-bold text-sm">© 2026 ASweetenz. All rights reserved.</div>
-        </div>
+</main>
 
-        <div class="flex-1 px-8 min-w-[150px] border-l-2 border-[#ff4fa1]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold uppercase">Information</h4>
-            <ul class="list-none p-0 space-y-2">
-                <li><a href="#" class="text-lg font-bold underline decoration-2">Home</a></li>
-                <li><a href="#" class="text-lg font-bold underline decoration-2">Shop All</a></li>
-                <li><a href="#" class="text-lg font-bold underline decoration-2">Collections</a></li>
-                <li><a href="#" class="text-lg font-bold underline decoration-2">About</a></li>
-            </ul>
-        </div>
-
-        <div class="flex-1 px-8 min-w-[150px] border-l-2 border-[#ff4fa1]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold uppercase">Support</h4>
-            <ul class="list-none p-0 space-y-2">
-                <li><a href="#" class="text-lg font-bold underline decoration-2">Refund Policy</a></li>
-                <li><a href="#" class="text-lg font-bold underline decoration-2">FAQs</a></li>
-                <li><a href="#" class="text-lg font-bold underline decoration-2">Privacy Policy</a></li>
-                <li><a href="#" class="text-lg font-bold underline decoration-2">Terms of Use</a></li>
-            </ul>
-        </div>
-
-        <div class="flex-1 px-8 min-w-[200px] border-l-2 border-[#ff4fa1]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold uppercase text-black">Contact us</h4>
-            <div class="space-y-4">
-                <div class="flex items-center gap-4 text-lg font-bold text-black">
-                    <i class="fa-brands fa-instagram text-2xl"></i>
-                    <span>@angelicasweetenz</span>
-                </div>
-                <div class="flex items-center gap-4 text-lg font-bold text-black">
-                    <i class="fa-brands fa-discord text-xl"></i>
-                    <span>asweetenz</span>
-                </div>
-                <div class="flex items-center gap-4 text-lg font-bold text-black">
-                    <i class="fa-solid fa-envelope text-xl"></i>
-                    <span class="text-base">angelica.sweetenz@gmail.com</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
-</html>
+<?php include 'footer.php'; ?>

@@ -1,126 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include 'header.php'; 
+if (!isLoggedIn()) header("Location: Login.php");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASweetenz - Verify Email</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background-color: #ffffff;
-        }
+$error = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $uid = $_SESSION['user_id'];
+    
+    // Verify it matches current account
+    $check = $conn->query("SELECT * FROM users WHERE user_id=$uid AND email='$email'");
+    if ($check->num_rows > 0) {
+        // Generate OTP
+        $otp = rand(100000, 999999);
+        $conn->query("UPDATE users SET verification_code='$otp' WHERE user_id=$uid");
+        
+        $_SESSION['verify_mode'] = 'change_email';
+        header("Location: Verify(Settings_Code).php");
+        exit();
+    } else {
+        $error = "Email does not match our records.";
+    }
+}
+?>
 
-        .main-bg-pattern {
-            background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
+<main class="main-bg-pattern min-h-[80vh] flex items-center justify-center px-4">
+    <div class="bg-white p-10 rounded-[40px] shadow-lg border border-pink-100 max-w-md w-full text-center">
+        <h1 class="text-3xl font-black text-[#ff4fa1] mb-4">Security Check</h1>
+        <p class="text-gray-500 mb-8 font-bold">Please enter your current email address to continue.</p>
 
-        .input-field {
-            width: 100%;
-            padding: 10px 20px;
-            border: 2px solid #4a4a4a;
-            border-radius: 20px;
-            font-size: 1.5rem;
-            outline: none;
-            color: #4a4a4a;
-        }
+        <?php if($error) echo "<p class='text-red-500 font-bold mb-4'>$error</p>"; ?>
 
-        .input-field::placeholder {
-            color: #d1d1d1;
-            font-weight: 700;
-        }
-    </style>
-</head>
-
-<body class="text-[#4a4a4a]">
-
-    <main class="main-bg-pattern min-h-screen flex flex-col items-center py-10 px-6">
-
-        <div class="mb-6">
-            <img src="Logo.png" alt="ASweetenz Mascot" class="h-40 w-auto">
-        </div>
-
-        <div class="bg-[#fbfcf8] w-full max-w-[580px] rounded-[50px] p-12 text-center shadow-sm">
-            <h2 class="text-[#ff4fa1] text-5xl font-bold mb-10">Enter Verification Code</h2>
-
-            <div class="mb-6 text-left">
-                <label class="block text-lg font-bold mb-2">
-                    Enter Email <span class="text-red-500">*</span>
-                </label>
-                <input type="email" placeholder="Enter Email" class="input-field">
-            </div>
-
-            <button class="w-full bg-[#ff4fa1] text-white py-4 rounded-full text-3xl font-bold mb-8 hover:opacity-90 transition-opacity">
+        <form method="POST">
+            <input type="email" name="email" placeholder="Current Email" required class="w-full py-3 px-6 border-2 border-gray-200 rounded-full focus:border-[#ff4fa1] outline-none transition font-bold mb-6">
+            <button type="submit" class="bg-[#ff4fa1] text-white w-full py-3 rounded-full font-bold text-xl hover:bg-[#e03e8a] transition shadow-md">
                 Send Code
             </button>
+        </form>
+        <a href="Customer_Settings.php" class="block mt-6 text-gray-400 font-bold hover:text-[#ff4fa1]">Cancel</a>
+    </div>
+</main>
 
-            <div>
-                <a href="#" class="text-lg font-bold border-b-2 border-black inline-block leading-tight">
-                    Return to Settings
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-[#ffc3dc] py-16 px-[5%] flex justify-between flex-wrap mt-20 text-[#ff4fa1]">
-        <div class="flex-1 px-5 min-w-[280px] flex flex-col justify-between">
-            <img src="Brand and logo.png" alt="ASweetenz" class="max-w-[280px]">
-            <div class="mt-10 font-bold text-sm">© 2026 ASweetenz. All rights reserved.</div>
-        </div>
-
-        <div class="flex-1 px-8 min-w-[150px] border-l-2 border-[#ff4fa1]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold">Information</h4>
-            <ul class="list-none p-0 space-y-2">
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Home</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Shop All</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Collections</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">About</a></li>
-            </ul>
-        </div>
-
-        <div class="flex-1 px-8 min-w-[150px] border-l-2 border-[#ff4fa1]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold">Support</h4>
-            <ul class="list-none p-0 space-y-2">
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Refund Policy</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">FAQs</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Privacy Policy</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Terms of Use</a></li>
-            </ul>
-        </div>
-
-        <div class="flex-1 px-8 min-w-[150px] border-l-2 border-[#ff4fa1]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold">Customer Service</h4>
-            <ul class="list-none p-0 space-y-2">
-                <li><a href="#" class="text-lg font-semibold underline decoration-2 leading-tight">Return & Exchange Policy</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Shipping Policy</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Privacy Policy</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Order Tracking</a></li>
-            </ul>
-        </div>
-
-        <div class="flex-1 px-8 min-w-[250px]">
-            <h4 class="mt-0 mb-6 text-2xl font-bold">Contact us</h4>
-            <div class="space-y-4">
-                <div class="flex items-center gap-4 text-lg font-semibold">
-                    <i class="fa-brands fa-instagram text-2xl text-black"></i>
-                    <span>@angelicasweetenz</span>
-                </div>
-                <div class="flex items-center gap-4 text-lg font-semibold">
-                    <i class="fa-brands fa-discord text-xl text-black"></i>
-                    <span>asweetenz</span>
-                </div>
-                <div class="flex items-center gap-4 text-lg font-semibold">
-                    <i class="fa-solid fa-envelope text-xl text-black"></i>
-                    <span class="text-base">angelica.sweetenz@gmail.com</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
-</html>
+<?php include 'footer.php'; ?>
