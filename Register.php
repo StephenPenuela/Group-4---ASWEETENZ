@@ -29,6 +29,7 @@
             <a href="#" class="text-white text-2xl font-bold no-underline hover:opacity-80 transition-opacity">Home</a>
             <a href="#" class="text-white text-2xl font-bold no-underline hover:opacity-80 transition-opacity">Shop All</a>
             <a href="#" class="text-white text-2xl font-bold no-underline hover:opacity-80 transition-opacity">Collections</a>
+            <a href="#" class="text-white text-2xl font-bold no-underline hover:opacity-80 transition-opacity">Commission</a>
             <a href="#" class="text-white text-2xl font-bold no-underline hover:opacity-80 transition-opacity">About</a>
         </nav>
 

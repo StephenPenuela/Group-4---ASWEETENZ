@@ -84,7 +84,7 @@
             <ul class="list-none p-0 space-y-2">
                 <li><a href="#" class="text-lg font-semibold underline decoration-2">Home</a></li>
                 <li><a href="#" class="text-lg font-semibold underline decoration-2">Shop All</a></li>
-                <li><a href="#" class="text-lg font-semibold underline decoration-2">Collections</a></li>
+                <li><a href="#" class="text-lg font-semibold underline decoration-2">Commission</a></li>
                 <li><a href="#" class="text-lg font-semibold underline decoration-2">About</a></li>
             </ul>
         </div>

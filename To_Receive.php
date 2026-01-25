@@ -77,7 +77,7 @@
         <nav class="absolute left-1/2 -translate-x-1/2 flex gap-x-12">
             <a href="#" class="text-white text-2xl font-bold no-underline">Home</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">Shop All</a>
-            <a href="#" class="text-white text-2xl font-bold no-underline">Collections</a>
+            <a href="#" class="text-white text-2xl font-bold no-underline">Commission</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">About</a>
         </nav>
 

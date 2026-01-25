@@ -122,7 +122,7 @@
         <nav class="absolute left-1/2 -translate-x-1/2 flex gap-x-12 font-bold text-2xl">
             <a href="#" class="no-underline">Home</a>
             <a href="#" class="no-underline">Shop All</a>
-            <a href="#" class="no-underline">Collections</a>
+            <a href="#" class="no-underline">Commission</a>
             <a href="#" class="no-underline">About</a>
         </nav>
         <div class="flex items-center gap-x-4 ml-auto z-10 mt-[-20px]">

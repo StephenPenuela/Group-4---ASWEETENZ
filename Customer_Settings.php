@@ -133,6 +133,7 @@
                 <li><a href="#" class="text-lg underline decoration-2">Home</a></li>
                 <li><a href="#" class="text-lg underline decoration-2">Shop All</a></li>
                 <li><a href="#" class="text-lg underline decoration-2">Collections</a></li>
+                <li><a href="#" class="text-lg underline decoration-2">Commission</a></li>
                 <li><a href="#" class="text-lg underline decoration-2">About</a></li>
             </ul>
         </div>

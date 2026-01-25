@@ -72,6 +72,7 @@
             <a href="#" class="text-white text-2xl font-bold no-underline">Home</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">Shop All</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">Collections</a>
+            <a href="#" class="text-white text-2xl font-bold no-underline">Commission</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">About</a>
         </nav>
 

@@ -92,10 +92,11 @@
             <img src="Logo_Banner.png" alt="Logo" class="h-20">
         </div>
 
-        <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex gap-x-12">
+        <nav class="absolute left-1/2 -translate-x-1/2 hidden md:flex gap-x-12 ">
             <a href="#" class="text-white text-2xl font-bold no-underline">Home</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">Shop All</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">Collections</a>
+            <a href="#" class="text-white text-2xl font-bold no-underline">Commmission</a>
             <a href="#" class="text-white text-2xl font-bold no-underline">About</a>
         </nav>
 
